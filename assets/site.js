@@ -53,22 +53,27 @@
   function generatedCover(title) {
     if (coverCache[title]) return coverCache[title];
     var r = rng(hash(title));
-    var w = 64, h = 36, c = document.createElement("canvas");
-    c.width = w; c.height = h;
-    var g = c.getContext("2d");
+    /* Built as SVG, not on a canvas: privacy features in Safari, Firefox and Brave scramble
+     * pictures read back from a canvas (toDataURL), which turned covers into stripes. */
+    var w = 64, h = 36;
     var hue = HUES[Math.floor(r() * HUES.length)];
-    g.fillStyle = "hsl(" + hue + " 38% 22%)"; g.fillRect(0, 0, w, h);
-    g.fillStyle = "hsl(" + hue + " 38% 27%)";                     /* faint dot grid */
-    for (var y = 2; y < h; y += 4) for (var x = 2; x < w; x += 4) g.fillRect(x, y, 1, 1);
+    var bg = "hsl(" + hue + ",38%,22%)", dot = "hsl(" + hue + ",38%,27%)", ink = "hsl(" + hue + ",80%,72%)";
+    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + w + " " + h +
+      '" width="' + w * 5 + '" height="' + h * 5 + '" shape-rendering="crispEdges">' +
+      '<defs><pattern id="d" width="4" height="4" patternUnits="userSpaceOnUse">' +
+      '<rect x="2" y="2" width="1" height="1" fill="' + dot + '"/></pattern></defs>' +
+      '<rect width="' + w + '" height="' + h + '" fill="' + bg + '"/>' +
+      '<rect width="' + w + '" height="' + h + '" fill="url(#d)"/><g fill="' + ink + '">';
     var cells = 7, px = 3, ox = (w - cells * px) >> 1, oy = (h - cells * px) >> 1;
-    g.fillStyle = "hsl(" + hue + " 80% 72%)";
     for (var cy = 0; cy < cells; cy++)
       for (var cx = 0; cx < Math.ceil(cells / 2); cx++)
         if (r() < 0.5) {
-          g.fillRect(ox + cx * px, oy + cy * px, px, px);
-          g.fillRect(ox + (cells - 1 - cx) * px, oy + cy * px, px, px);
+          s += '<rect x="' + (ox + cx * px) + '" y="' + (oy + cy * px) + '" width="3" height="3"/>';
+          if (cx !== cells - 1 - cx)
+            s += '<rect x="' + (ox + (cells - 1 - cx) * px) + '" y="' + (oy + cy * px) + '" width="3" height="3"/>';
         }
-    return (coverCache[title] = c.toDataURL());
+    s += "</g></svg>";
+    return (coverCache[title] = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(s));
   }
   function coverFor(p) { return p.cover ? projectUrl(p, p.cover) : generatedCover(p.title); }
 

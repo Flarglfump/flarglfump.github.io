@@ -11,7 +11,7 @@
 
 window.SITE = {
   name: "Flarglfump",                       // shown in the header and the page titles
-  tagline: "I make games, engines, and whatever else I think is neat!.",
+  tagline: "I make games, engines, and whatever else I think is neat!",
   intro:
     "Most of what's here runs in your browser. Pick something and press Play; " +
     "everything else links to its source.",
