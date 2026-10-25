@@ -108,11 +108,22 @@ window.PROJECTS = [
     summary: "A top-down adventure across 128 screens, made entirely in the editor with scripts.",
     tags: ["game", "bronto", "adventure"],
     embed: "play/index.html",
+    controls: [
+      ["Arrows / WASD / stick", "Walk"],
+      ["X / A", "Poke with the spoon"],
+      ["Z / B", "Use the B item"],
+      ["Enter / X button", "Pocket Pantry"],
+      ["Esc / Start", "Pause"],
+      ["Touch screen", "On-screen stick and buttons appear when you touch it"],
+    ],
     links: [{ label: "Source", url: "https://github.com/flarglfump/bronto/tree/main/examples/pantryquest" }],
     body: `
       <p>Caves, shops, secrets, cellars with keys, maps, compasses and bosses, built from
       Tilemaps, prefabs and BrontoScript with no C code, and with its own art, sound and
-      music.</p>`,
+      music.</p>
+      <p>Plays on phones and tablets too: touch the game and an on-screen stick and A B X Y
+      buttons appear. Held sideways they sit beside the game; held upright, below it. For
+      the whole screen, use <em>Open in its own tab</em>.</p>`,
   },
   {
     slug: "platformer",

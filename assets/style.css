@@ -141,6 +141,12 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
 }
 .stage:fullscreen { border-radius: 0; aspect-ratio: auto !important; }
 .stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+/* Touch screens: a frame the game and its on-screen controls fit in - taller when the phone is upright
+   (the game goes at the top, the controls under it), and no taller than the screen when it's sideways. */
+@media (pointer: coarse) and (orientation: portrait) and (max-width: 700px) { .stage { aspect-ratio: 9 / 14 !important; } }
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
+  .stage { aspect-ratio: auto !important; height: calc(100vh - 24px); height: calc(100svh - 24px); }
+}
 .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   image-rendering: pixelated; filter: brightness(0.7); }
 .start {
