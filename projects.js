@@ -74,6 +74,7 @@ window.PROJECTS = [
       ["Enter / A", "Start"],
       ["P / Esc / Start", "Pause"],
       ["M", "Mute the music"],
+      ["Touch screen", "On-screen d-pad, A, MUSIC, START and MENU appear when you touch it"],
     ],
     links: [{ label: "Source", url: "https://github.com/flarglfump/bronto/tree/main/examples/snake" }],
     body: `
@@ -93,6 +94,7 @@ window.PROJECTS = [
     controls: [
       ["Mouse", "Place and select towers"],
       ["Keyboard / gamepad", "Also supported"],
+      ["Touch screen", "Tap to place and select; on-screen CANCEL and PAUSE"],
     ],
     links: [{ label: "Source", url: "https://github.com/flarglfump/bronto/tree/main/examples/towerdefense" }],
     body: `
@@ -132,6 +134,11 @@ window.PROJECTS = [
     summary: "A single physics-driven level, made only in the editor.",
     tags: ["game", "bronto", "platformer"],
     embed: "play/index.html",
+    controls: [
+      ["Arrows / A, D", "Run"],
+      ["Space / Up / W", "Jump"],
+      ["Touch screen", "On-screen \u25c0 \u25b6 and JUMP appear when you touch it"],
+    ],
     links: [{ label: "Source", url: "https://github.com/flarglfump/bronto/tree/main/examples/platformer" }],
     body: `<p>A level built from colliders, rigid bodies and a handful of scripts.</p>`,
   },
