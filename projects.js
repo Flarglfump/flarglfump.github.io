@@ -104,6 +104,41 @@ window.PROJECTS = [
       three-line change.</p>`,
   },
   {
+    slug: "pantry-quest-2",
+    title: "Pantry Quest II",
+    year: 2026,
+    summary: "A side-scrolling castle adventure across 54 rooms: the sequel, with eight abilities, five bosses and fast travel.",
+    tags: ["game", "bronto", "metroidvania"],
+    embed: "play/index.html",
+    aspect: "16/15",
+    clickToLoad: true,
+    controls: [
+      ["Arrows / WASD / d-pad", "Run, aim, crouch"],
+      ["Z / Space / A", "Jump"],
+      ["X / J / X button", "Pepper"],
+      ["C / L / B", "Hot sauce rocket"],
+      ["Q / Shift / LB (hold)", "Aim in place, eight ways"],
+      ["E / Y", "Roll up in the Dough Wrap"],
+      ["Enter / P / Start", "Pause: map, items, diary, settings"],
+      ["M / Tab / Back", "Map"],
+      ["Mouse", "Works every menu"],
+      ["F9", "Show held inputs"],
+      ["Touch screen", "On-screen stick and buttons appear when you touch it"],
+    ],
+    links: [{ label: "Source", url: "https://github.com/flarglfump/bronto/tree/main/examples/pantryquest2" }],
+    body: `
+      <p>Count Fromage, a blue cheese forgotten in a cellar for a hundred years, has taken Chef
+      Pip. His apprentice Basil puts on a pot for a helmet and goes after him, through six areas,
+      four Spoiled Knights and the Count's castle.</p>
+      <p>Abilities open up the world as they're found. The map marks hearths, rooms with items
+      still to find, ways that need gear you haven't got yet, and where to go next. Hearths
+      save the game and let you travel between them. Every control can be changed under
+      CONTROLS.</p>
+      <p>Like the first game it's made in the editor from scenes, prefabs, Tilemaps and
+      BrontoScript, with no C code; its art, sound and music are made by small Python tools.</p>
+      <p>In LibreWolf the page can't see Shift on its own, so aim with Q there.</p>`,
+  },
+  {
     slug: "pantry-quest",
     title: "Pantry Quest",
     year: 2026,
